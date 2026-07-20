@@ -1,101 +1,85 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header bg-primary text-white">
-          <h4 class="mb-0">Add Transaction</h4>
+<!-- transaction-form.html -->
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white py-3">
+                    <h3 class="card-title mb-0 fw-semibold">
+                        {{editMode ? "Edit" : "Add"}} Transaction
+                    </h3>  
+                </div>
+                <div class="card-body p-4">
+                    <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+                        
+                        <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{ errorMessage }}
+                            <button type="button" class="btn-close" (click)="errorMessage = ''"></button>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="type" class="form-label fw-medium">Type</label>
+                            <select 
+                                class="form-select form-select-lg"
+                                id="type"
+                                formControlName="type"
+                                (change)="onTypeChange()"
+                            >
+                                <option value="Expense">Expense</option>
+                                <option value="Income">Income</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="category" class="form-label fw-medium">Category</label>
+                            <select 
+                                class="form-select form-select-lg"
+                                id="category"
+                                formControlName="category"
+                            >
+                                <option value="">Select Category</option>
+                                <option *ngFor="let category of availableCategories" [value]="category">
+                                    {{category}}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="amount" class="form-label fw-medium">Amount</label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input
+                                    type="number"
+                                    class="form-control form-control-lg"
+                                    id="amount"
+                                    formControlName="amount"
+                                    placeholder="0.00"
+                                    step="0.01"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="createdAt" class="form-label fw-medium">Date</label>
+                            <input 
+                                type="date" 
+                                class="form-control form-control-lg" 
+                                id="createdAt" 
+                                formControlName="createdAt">
+                        </div>
+
+                        <div class="d-flex gap-3 justify-content-end mt-4">
+                            <button type="button" class="btn btn-light btn-lg px-4" (click)="cancel()">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-lg px-4" 
+                                [disabled]="!transactionForm.valid || isLoading">
+                                <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                {{editMode ? "Update" : "Save"}} Transaction
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-          <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
-            
-            <!-- Error Message -->
-            <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
-              {{ errorMessage }}
-              <button type="button" class="btn-close" (click)="errorMessage = ''"></button>
-            </div>
-
-            <!-- Type Field -->
-            <div class="mb-3">
-              <label for="type" class="form-label">Type</label>
-              <select 
-                class="form-select" 
-                id="type" 
-                formControlName="type" 
-                (change)="onTypeChange()">
-                <option value="Income">Income</option>
-                <option value="Expense">Expense</option>
-              </select>
-              <small class="text-danger" *ngIf="transactionForm.get('type')?.invalid && transactionForm.get('type')?.touched">
-                Type is required
-              </small>
-            </div>
-
-            <!-- Category Field -->
-            <div class="mb-3">
-              <label for="category" class="form-label">Category</label>
-              <select 
-                class="form-select" 
-                id="category" 
-                formControlName="category">
-                <option value="">Select Category</option>
-                <option *ngFor="let cat of availableCategories" [value]="cat">
-                  {{ cat }}
-                </option>
-              </select>
-              <small class="text-danger" *ngIf="transactionForm.get('category')?.invalid && transactionForm.get('category')?.touched">
-                Category is required
-              </small>
-            </div>
-
-            <!-- Amount Field -->
-            <div class="mb-3">
-              <label for="amount" class="form-label">Amount</label>
-              <input 
-                type="number" 
-                class="form-control" 
-                id="amount" 
-                formControlName="amount"
-                placeholder="Enter amount"
-                step="0.01">
-              <small class="text-danger" *ngIf="transactionForm.get('amount')?.invalid && transactionForm.get('amount')?.touched">
-                <span *ngIf="transactionForm.get('amount')?.hasError('required')">Amount is required</span>
-                <span *ngIf="transactionForm.get('amount')?.hasError('min')">Amount must be greater than 0</span>
-              </small>
-            </div>
-
-            <!-- Date Field -->
-            <div class="mb-3">
-              <label for="createdAt" class="form-label">Date</label>
-              <input 
-                type="date" 
-                class="form-control" 
-                id="createdAt" 
-                formControlName="createdAt">
-              <small class="text-danger" *ngIf="transactionForm.get('createdAt')?.invalid && transactionForm.get('createdAt')?.touched">
-                Date is required
-              </small>
-            </div>
-
-            <!-- Buttons -->
-            <div class="d-flex gap-2">
-              <button 
-                type="submit" 
-                class="btn btn-primary flex-grow-1"
-                [disabled]="!transactionForm.valid || isLoading">
-                <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                {{ isLoading ? 'Adding...' : 'Add Transaction' }}
-              </button>
-              <button 
-                type="button" 
-                class="btn btn-secondary flex-grow-1"
-                (click)="cancel()"
-                [disabled]="isLoading">
-                Cancel
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
-  </div>
 </div>

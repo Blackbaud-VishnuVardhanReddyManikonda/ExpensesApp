@@ -25,7 +25,7 @@ export const routes: Routes = [
   },
 
   {
-    path:'edit/id',
+    path:'edit/:id',
     component:TransactionForm
   },
     {
