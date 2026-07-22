@@ -1,1 +1,263 @@
-<p>signup works!</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+      <div class="card mt-5">
+        <!-- Card Header -->
+        <div class="card-header bg-primary bg-opacity-75">
+          <h3 class="card-title mb-0 text-white">
+            <i class="bi bi-person-plus"></i> Sign Up
+          </h3>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body">
+          <!-- ✅ ERROR ALERT - VISIBLE & ALWAYS UPDATES -->
+          <ng-container *ngIf="errorMessage as error">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <div class="d-flex align-items-start">
+                <i class="bi bi-exclamation-circle-fill me-2" style="font-size: 1.3rem; color: #dc3545;"></i>
+                <div style="flex: 1;">
+                  <strong>Registration Failed</strong>
+                  <br>
+                  <small style="color: #721c24;">{{ error }}</small>
+                </div>
+                <button type="button" class="btn-close" (click)="errorMessage = null; $event.stopPropagation()"></button>
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- ✅ SUCCESS ALERT -->
+          <ng-container *ngIf="successMessage as success">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <div class="d-flex align-items-start">
+                <i class="bi bi-check-circle-fill me-2" style="font-size: 1.3rem; color: #198754;"></i>
+                <div style="flex: 1;">
+                  <strong>Success!</strong>
+                  <br>
+                  <small style="color: #155724;">{{ success }}</small>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- Form -->
+          <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+            <!-- Email Field -->
+            <div class="mb-3">
+              <label for="email" class="form-label">
+                <i class="bi bi-envelope"></i> Email
+              </label>
+              <input
+                type="email"
+                class="form-control"
+                [ngClass]="{'is-invalid': hasError('email', 'required') || hasError('email', 'email')}"
+                id="email"
+                formControlName="email"
+                placeholder="Enter your email"
+              />
+              <!-- Email Required Error -->
+              <div class="invalid-feedback d-block" *ngIf="hasError('email', 'required')">
+                <i class="bi bi-exclamation-triangle"></i>
+                Email is required
+              </div>
+              <!-- Email Format Error -->
+              <div class="invalid-feedback d-block" *ngIf="hasError('email', 'email')">
+                <i class="bi bi-exclamation-triangle"></i>
+                Please enter a valid email address
+              </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="mb-3">
+              <label for="password" class="form-label">
+                <i class="bi bi-lock"></i> Password
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                [ngClass]="{'is-invalid': hasError('password', 'required') || hasError('password', 'minlength')}"
+                id="password"
+                formControlName="password"
+                placeholder="At least 6 characters"
+              />
+              <!-- Password Required Error -->
+              <div class="invalid-feedback d-block" *ngIf="hasError('password', 'required')">
+                <i class="bi bi-exclamation-triangle"></i>
+                Password is required
+              </div>
+              <!-- Password Length Error -->
+              <div class="invalid-feedback d-block" *ngIf="hasError('password', 'minlength')">
+                <i class="bi bi-exclamation-triangle"></i>
+                Password must be at least 6 characters long
+              </div>
+            </div>
+
+            <!-- Confirm Password Field -->
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">
+                <i class="bi bi-lock-fill"></i> Confirm Password
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                [ngClass]="{
+                  'is-invalid': hasError('confirmPassword', 'required') || passwordMismatch,
+                  'is-valid': signupForm.get('confirmPassword')?.value && !passwordMismatch && signupForm.get('confirmPassword')?.touched
+                }"
+                id="confirmPassword"
+                formControlName="confirmPassword"
+                placeholder="Re-enter your password"
+              />
+              <!-- Confirm Password Required Error -->
+              <div class="invalid-feedback d-block" *ngIf="hasError('confirmPassword', 'required')">
+                <i class="bi bi-exclamation-triangle"></i>
+                Confirm password is required
+              </div>
+              <!-- ✅ Passwords Don't Match Error (Real-time) -->
+              <div class="invalid-feedback d-block" *ngIf="passwordMismatch && signupForm.get('confirmPassword')?.value">
+                <i class="bi bi-exclamation-circle"></i>
+                Passwords do not match
+              </div>
+              <!-- ✅ Passwords Match Success (Real-time) -->
+              <div class="valid-feedback d-block" *ngIf="signupForm.get('confirmPassword')?.value && !passwordMismatch && signupForm.get('confirmPassword')?.touched">
+                <i class="bi bi-check-circle"></i>
+                Passwords match perfectly!
+              </div>
+            </div>
+
+            <!-- Password Match Status Indicator -->
+            <div class="mb-3" *ngIf="signupForm.get('confirmPassword')?.value">
+              <div class="d-flex align-items-center" [ngClass]="{'text-success': !passwordMismatch, 'text-danger': passwordMismatch}">
+                <i class="bi" [ngClass]="{'bi-check-circle-fill': !passwordMismatch, 'bi-x-circle-fill': passwordMismatch}"></i>
+                <span class="ms-2 small fw-bold">
+                  {{ passwordMismatch ? 'Passwords do not match' : 'Passwords match' }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid">
+              <button 
+                type="submit" 
+                class="btn btn-primary" 
+                [disabled]="!signupForm.valid || isLoading || passwordMismatch"
+              >
+                <span *ngIf="!isLoading">
+                  <i class="bi bi-person-check"></i> Sign up
+                </span>
+                <span *ngIf="isLoading">
+                  <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                  Creating account...
+                </span>
+              </button>
+            </div>
+
+            <!-- Link to Login -->
+            <div class="text-center mt-3">
+              Already have an account? 
+              <a [routerLink]="'/login'" class="text-primary fw-bold">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add CSS for styling -->
+<style>
+  .invalid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+  }
+
+  .invalid-feedback.d-block {
+    display: block;
+  }
+
+  .valid-feedback {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #198754;
+  }
+
+  .valid-feedback.d-block {
+    display: block;
+  }
+
+  .is-invalid {
+    border-color: #dc3545 !important;
+    background-color: #fff5f5 !important;
+  }
+
+  .is-valid {
+    border-color: #198754 !important;
+    background-color: #f1fdf4 !important;
+  }
+
+  .alert {
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    border-left: 4px solid;
+    animation: slideIn 0.3s ease-in-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .alert-danger {
+    border-left-color: #dc3545;
+    background-color: #fff8f8;
+  }
+
+  .alert-success {
+    border-left-color: #198754;
+    background-color: #f8fff9;
+  }
+
+  .alert i {
+    margin-right: 0.5rem;
+  }
+
+  .form-label i {
+    margin-right: 0.5rem;
+    color: #0d6efd;
+  }
+
+  .btn i {
+    margin-right: 0.5rem;
+  }
+
+  .spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .text-success {
+    color: #198754 !important;
+  }
+
+  .text-danger {
+    color: #dc3545 !important;
+  }
+
+  .bi-check-circle-fill,
+  .bi-x-circle-fill {
+    font-size: 1.2rem;
+  }
+</style>

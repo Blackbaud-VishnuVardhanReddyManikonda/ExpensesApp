@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|c:\\users\\vishnuvardhanreddy.m\\onedrive - blackbaud, inc\\desktop\\practice\\expensesapp\\expenses.api\\expenses.api\\data\\services\\transactioninterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|solutionrelative:expenses.api\\data\\services\\transactioninterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|c:\\users\\vishnuvardhanreddy.m\\onedrive - blackbaud, inc\\desktop\\practice\\expensesapp\\expenses.api\\expenses.api\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|solutionrelative:expenses.api\\controllers\\transactionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|c:\\users\\vishnuvardhanreddy.m\\onedrive - blackbaud, inc\\desktop\\practice\\expensesapp\\expenses.api\\expenses.api\\dtos\\posttransactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|solutionrelative:expenses.api\\dtos\\posttransactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|c:\\users\\vishnuvardhanreddy.m\\onedrive - blackbaud, inc\\desktop\\practice\\expensesapp\\expenses.api\\expenses.api\\data\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|solutionrelative:expenses.api\\data\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|c:\\users\\vishnuvardhanreddy.m\\onedrive - blackbaud, inc\\desktop\\practice\\expensesapp\\expenses.api\\expenses.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|solutionrelative:expenses.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|c:\\users\\vishnuvardhanreddy.m\\onedrive - blackbaud, inc\\desktop\\practice\\expensesapp\\expenses.api\\expenses.api\\dtos\\puttransactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,15 +15,16 @@
       "RelativeMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|solutionrelative:expenses.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|c:\\users\\vishnuvardhanreddy.m\\onedrive - blackbaud, inc\\desktop\\practice\\expensesapp\\expenses.api\\expenses.api\\models\\base\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|solutionrelative:expenses.api\\models\\base\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|c:\\users\\vishnuvardhanreddy.m\\onedrive - blackbaud, inc\\desktop\\practice\\expensesapp\\expenses.api\\expenses.api\\dtos\\postuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|solutionrelative:expenses.api\\dtos\\postuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/Expenses_Db/True/SqlTable/dbo.Transactions.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|c:\\users\\vishnuvardhanreddy.m\\onedrive - blackbaud, inc\\desktop\\practice\\expensesapp\\expenses.api\\expenses.api\\data\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|solutionrelative:expenses.api\\data\\services\\transactionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|c:\\users\\vishnuvardhanreddy.m\\onedrive - blackbaud, inc\\desktop\\practice\\expensesapp\\expenses.api\\expenses.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|solutionrelative:expenses.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|c:\\users\\vishnuvardhanreddy.m\\onedrive - blackbaud, inc\\desktop\\practice\\expensesapp\\expenses.api\\expenses.api\\dtos\\loginuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{744119CD-664A-C747-37A4-F5EAB7D4F19F}|Expenses.API\\Expenses.API.csproj|solutionrelative:expenses.api\\dtos\\loginuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -57,112 +46,76 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TransactionInterface.cs",
-              "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Data\\Services\\TransactionInterface.cs",
-              "RelativeDocumentMoniker": "Expenses.API\\Data\\Services\\TransactionInterface.cs",
-              "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Data\\Services\\TransactionInterface.cs",
-              "RelativeToolTip": "Expenses.API\\Data\\Services\\TransactionInterface.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-22T02:20:46.588Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PostTransactionDto.cs",
-              "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Dtos\\PostTransactionDto.cs",
-              "RelativeDocumentMoniker": "Expenses.API\\Dtos\\PostTransactionDto.cs",
-              "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Dtos\\PostTransactionDto.cs",
-              "RelativeToolTip": "Expenses.API\\Dtos\\PostTransactionDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-21T07:37:02.313Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Program.cs",
-              "RelativeDocumentMoniker": "Expenses.API\\Program.cs",
-              "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Program.cs",
-              "RelativeToolTip": "Expenses.API\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAYAAAAAAAAAA==",
+              "Title": "LoginUserDto.cs",
+              "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Dtos\\LoginUserDto.cs",
+              "RelativeDocumentMoniker": "Expenses.API\\Dtos\\LoginUserDto.cs",
+              "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Dtos\\LoginUserDto.cs",
+              "RelativeToolTip": "Expenses.API\\Dtos\\LoginUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-21T07:29:50.604Z"
+              "WhenOpened": "2026-07-22T05:47:45.451Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\appsettings.json",
-              "RelativeDocumentMoniker": "Expenses.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\appsettings.json",
-              "RelativeToolTip": "Expenses.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-07-21T06:39:33.764Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BaseEntity.cs",
-              "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Models\\Base\\BaseEntity.cs",
-              "RelativeDocumentMoniker": "Expenses.API\\Models\\Base\\BaseEntity.cs",
-              "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Models\\Base\\BaseEntity.cs",
-              "RelativeToolTip": "Expenses.API\\Models\\Base\\BaseEntity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-21T06:36:54.144Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "TransactionService.cs",
               "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Data\\Services\\TransactionService.cs",
               "RelativeDocumentMoniker": "Expenses.API\\Data\\Services\\TransactionService.cs",
               "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Data\\Services\\TransactionService.cs",
               "RelativeToolTip": "Expenses.API\\Data\\Services\\TransactionService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-21T01:11:57.814Z",
+              "WhenOpened": "2026-07-22T05:26:21.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PostUserDto.cs",
+              "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Dtos\\PostUserDto.cs",
+              "RelativeDocumentMoniker": "Expenses.API\\Dtos\\PostUserDto.cs",
+              "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Dtos\\PostUserDto.cs",
+              "RelativeToolTip": "Expenses.API\\Dtos\\PostUserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T05:17:59.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Expenses.API\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Expenses.API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAC8AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T05:15:12.489Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TransactionsController.cs",
-              "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Controllers\\TransactionsController.cs",
-              "RelativeDocumentMoniker": "Expenses.API\\Controllers\\TransactionsController.cs",
-              "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Controllers\\TransactionsController.cs",
-              "RelativeToolTip": "Expenses.API\\Controllers\\TransactionsController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAYwBYAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-21T01:06:49.547Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "dbo.Transactions.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/Expenses_Db/True/SqlTable/dbo.Transactions.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/Expenses_Db/True/SqlTable/dbo.Transactions.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2026-07-21T06:42:10.525Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "PutTransactionDto.cs",
               "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Dtos\\PutTransactionDto.cs",
               "RelativeDocumentMoniker": "Expenses.API\\Dtos\\PutTransactionDto.cs",
               "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Dtos\\PutTransactionDto.cs",
               "RelativeToolTip": "Expenses.API\\Dtos\\PutTransactionDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-21T01:06:19.816Z"
+              "WhenOpened": "2026-07-22T05:47:52.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Program.cs",
+              "RelativeDocumentMoniker": "Expenses.API\\Program.cs",
+              "ToolTip": "C:\\Users\\VishnuVardhanReddy.M\\OneDrive - Blackbaud, Inc\\Desktop\\practice\\ExpensesApp\\Expenses.API\\Expenses.API\\Program.cs",
+              "RelativeToolTip": "Expenses.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-21T07:29:50.604Z"
             }
           ]
         }

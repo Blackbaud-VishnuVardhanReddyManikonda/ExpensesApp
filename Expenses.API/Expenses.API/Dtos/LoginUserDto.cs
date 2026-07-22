@@ -1,12 +1,8 @@
-﻿using Expenses.API.Models.Base;
-
-namespace Expenses.API.Models
+﻿namespace Expenses.API.Dtos
 {
-    public class User:BaseEntity
+    public class LoginUserDto
     {
-
         public required string Email { get; set; }
         public required string Password { get; set; }
-
     }
 }
