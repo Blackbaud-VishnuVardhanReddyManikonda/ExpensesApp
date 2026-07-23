@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth';
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './signup.html',
   styleUrl: './signup.css',
-  changeDetection: ChangeDetectionStrategy.OnPush  // ✅ CRITICAL FIX
+  changeDetection: ChangeDetectionStrategy.OnPush  
 })
 export class Signup {
   signupForm: FormGroup;
@@ -22,7 +22,7 @@ export class Signup {
     private fb: FormBuilder, 
     private authService: AuthService, 
     private router: Router,
-    private cdr: ChangeDetectorRef  // ✅ Inject ChangeDetectorRef
+    private cdr: ChangeDetectorRef  
   ) {
     this.signupForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -39,12 +39,12 @@ export class Signup {
 
     passwordControl?.valueChanges.subscribe(() => {
       this.checkPasswordMatch();
-      this.cdr.markForCheck();  // ✅ Force change detection
+      this.cdr.markForCheck(); 
     });
 
     confirmPasswordControl?.valueChanges.subscribe(() => {
       this.checkPasswordMatch();
-      this.cdr.markForCheck();  // ✅ Force change detection
+      this.cdr.markForCheck();  
     });
   }
 
