@@ -25,9 +25,9 @@ namespace Expenses.API.Data.Services
             return newTransaction;
         }
 
-        public void Delete(int id)
+        public void Delete(int transactionId)
         {
-            var transaction = context.Transactions.FirstOrDefault(t => t.Id == id);
+            var transaction = context.Transactions.FirstOrDefault(t => t.Id == transactionId);
             if (transaction != null)
             {
                 context.Transactions.Remove(transaction);
@@ -42,16 +42,16 @@ namespace Expenses.API.Data.Services
             return allTransactions;
         }
 
-        public Transaction? GetById(int id)
+        public Transaction? GetById(int transactionId)
         {
-            var transaction = context.Transactions.FirstOrDefault(t => t.Id == id);
+            var transaction = context.Transactions.FirstOrDefault(t => t.Id == transactionId);
             
             return transaction;
         }
 
-        public Transaction? Update(int id, PutTransactionDto transaction)
+        public Transaction? Update(int transactionId, PutTransactionDto transaction)
         {
-            var transactionToUpdate = context.Transactions.FirstOrDefault(t => t.Id == id);
+            var transactionToUpdate = context.Transactions.FirstOrDefault(t => t.Id == transactionId);
             if (transactionToUpdate != null)
             {
                 transactionToUpdate.Type = transaction.Type ?? transactionToUpdate.Type;

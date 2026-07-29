@@ -41,22 +41,24 @@ namespace Expenses.API.Controllers
             }
         }
 
-        [HttpGet("Details/{id}")]
-        public IActionResult Get(int id)
+        [HttpGet("Details/{transactionId}")]
+        public IActionResult Get(int transactionId)
         {
+
+            if (transactionId <= 0)
+            {
+                return BadRequest(new { message = "Invalid transaction ID" });
+            }
+
+            var transaction = transactionservice.GetById(transactionId);
+
+            if (transaction == null)
+            {
+                return NotFound(new { message = "Transaction not found" });
+            }
             try
             {
-                if (id <= 0)
-                {
-                    return BadRequest(new { message = "Invalid transaction ID" });
-                }
 
-                var transaction = transactionservice.GetById(id);
-
-                if (transaction == null)
-                {
-                    return NotFound(new { message = "Transaction not found" });
-                }
 
                 return Ok(transaction);
             }
@@ -79,24 +81,25 @@ namespace Expenses.API.Controllers
             {
                 return BadRequest();
             }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var oneYearAgo = DateTime.Now.AddYears(-1);
+
+            if (payload.CreatedAt > DateTime.Now)
+            {
+                return BadRequest(new { message = "CreatedAt cannot be in the future" });
+            }
+
+            if (payload.CreatedAt < oneYearAgo)
+            {
+                return BadRequest(new { message = "CreatedAt cannot be older than 1 year" });
+            }
+            
             try
             {
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
-
-                var oneYearAgo = DateTime.Now.AddYears(-1);
-
-                if (payload.CreatedAt > DateTime.Now)
-                {
-                    return BadRequest(new { message = "CreatedAt cannot be in the future" });
-                }
-
-                if (payload.CreatedAt < oneYearAgo)
-                {
-                    return BadRequest(new { message = "CreatedAt cannot be older than 1 year" });
-                }
 
                 var newTransaction = transactionservice.Add(payload,userId);
 
@@ -113,23 +116,25 @@ namespace Expenses.API.Controllers
             }
         }
 
-        [HttpPut("Update/{id}")]
-        public IActionResult UpdateTransaction(int id, [FromBody] PutTransactionDto payload)
+        [HttpPut("Update/{transactionId}")]
+        public IActionResult UpdateTransaction(int transactionId, [FromBody] PutTransactionDto payload)
         {
+
+
+            if (transactionId <= 0)
+            {
+                return BadRequest(new { message = "Invalid transaction ID" });
+            }
+
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             try
             {
-                if (id <= 0)
-                {
-                    return BadRequest(new { message = "Invalid transaction ID" });
-                }
 
-
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
-
-                var existingTransaction = transactionservice.GetById(id);
+                var existingTransaction = transactionservice.GetById(transactionId);
                 if (existingTransaction == null)
                 {
                     return NotFound(new { message = "Transaction not found" });
@@ -150,7 +155,7 @@ namespace Expenses.API.Controllers
                     }
                 }
 
-                var updatedTransaction = transactionservice.Update(id, payload);
+                var updatedTransaction = transactionservice.Update(transactionId, payload);
 
                 if (updatedTransaction == null)
                 {
@@ -165,23 +170,24 @@ namespace Expenses.API.Controllers
             }
         }
 
-        [HttpDelete("Delete/{id}")]
-        public IActionResult DeleteTransaction(int id)
+        [HttpDelete("Delete/{transactionId}")]
+        public IActionResult DeleteTransaction(int transactionId)
         {
+
+            if (transactionId <= 0)
+            {
+                return BadRequest(new { message = "Invalid transaction ID" });
+            }
             try
             {
-                if (id <= 0)
-                {
-                    return BadRequest(new { message = "Invalid transaction ID" });
-                }
 
-                var existingTransaction = transactionservice.GetById(id);
+                var existingTransaction = transactionservice.GetById(transactionId);
                 if (existingTransaction == null)
                 {
                     return NotFound(new { message = "Transaction not found" });
                 }
 
-                transactionservice.Delete(id);
+                transactionservice.Delete(transactionId);
                 return Ok(new { message = "Transaction deleted successfully" });
             }
             catch (Exception ex)
