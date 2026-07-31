@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
-  imports: [],
   standalone: true,
-  templateUrl: './footer.html',
-  styleUrl: './footer.css',
+  template: `
+    <footer style="text-align: center; padding: 1rem; background: #f3f4f6;">
+      <p>&copy; 2026 Expense Tracker. All rights reserved.</p>
+    </footer>
+  `
 })
 export class Footer {
-
-  currentYear :number =new Date().getFullYear();
 }
