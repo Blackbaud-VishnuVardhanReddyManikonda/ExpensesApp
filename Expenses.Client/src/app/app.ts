@@ -7,8 +7,8 @@ import { Footer } from './components/footer/footer';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, Header, Footer],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.html',
+  styleUrls: ['./app.css']
 })
 export class App {
   title = 'Expense Tracker';
