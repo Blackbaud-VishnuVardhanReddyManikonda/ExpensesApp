@@ -9,16 +9,18 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-
   private apiUrl = 'https://localhost:7298/api/Auth';
   private currentUserSubject = new BehaviorSubject<string | null>(null);
   currentUser$ = this.currentUserSubject.asObservable();
 
-
   constructor(private http: HttpClient, private router: Router) { 
-    const token = localStorage.getItem('token');
-    if(token){
-      this.currentUserSubject.next('user');
+    try {
+      const token = localStorage.getItem('token');
+      if(token){
+        this.currentUserSubject.next('user');
+      }
+    } catch (error) {
+      console.error('Error accessing localStorage:', error);
     }
   }
 
@@ -26,8 +28,12 @@ export class AuthService {
     return this.http.post<AuthResponse>(this.apiUrl+"/Login", credentials)
                     .pipe(
                       tap((response) => {
-                        localStorage.setItem('token', response.token);
-                        this.currentUserSubject.next('user');
+                        try {
+                          localStorage.setItem('token', response.token);
+                          this.currentUserSubject.next('user');
+                        } catch (error) {
+                          console.error('Error saving token:', error);
+                        }
                       })
                     )
   }
@@ -36,25 +42,41 @@ export class AuthService {
     return this.http.post<AuthResponse>(this.apiUrl+"/Register", credentials)
                     .pipe(
                       tap((response) => {
-                        localStorage.setItem('token', response.token);
-                        this.currentUserSubject.next('user');
+                        try {
+                          localStorage.setItem('token', response.token);
+                          this.currentUserSubject.next('user');
+                        } catch (error) {
+                          console.error('Error saving token:', error);
+                        }
                       })
                     )
   }
   
-  logout():void {
-    localStorage.removeItem("token");
+  logout(): void {
+    try {
+      localStorage.removeItem("token");
+    } catch (error) {
+      console.error('Error removing token:', error);
+    }
     this.currentUserSubject.next(null);
     this.router.navigate(['/login']);
   }
-    isAuthenticated() : boolean {
-    return !!localStorage.getItem('token');
+
+  isAuthenticated(): boolean {
+    try {
+      return !!localStorage.getItem('token');
+    } catch (error) {
+      console.error('Error checking authentication:', error);
+      return false;
+    }
   }
 
-    getToken(): string | null {
-    return localStorage.getItem('token');
+  getToken(): string | null {
+    try {
+      return localStorage.getItem('token');
+    } catch (error) {
+      console.error('Error getting token:', error);
+      return null;
+    }
   }
-
-
-
 }
