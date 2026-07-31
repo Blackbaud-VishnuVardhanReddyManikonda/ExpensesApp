@@ -15,6 +15,6 @@ export class Header implements OnInit {
   constructor(public authService: AuthService) {}
   
   ngOnInit(): void {
-    // Initialize if needed
+    // Initialize after component creation
   }
 }
