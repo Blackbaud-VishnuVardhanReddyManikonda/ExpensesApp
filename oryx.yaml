@@ -1,0 +1,4 @@
+version: '3'
+buildScript: npm run build
+runtimeVersion:
+  node: '24.15.0'
