@@ -1,0 +1,116 @@
+<div class="analytics-container">
+  <div class="header">
+    <h2>Analytics Dashboard</h2>
+    <div class="filters">
+      <div class="date-range">
+        <div class="date-group">
+          <label>From</label>
+          <input type="date" class="date-input" [(ngModel)]="startDate">
+        </div>
+        <div class="date-group">
+          <label>To</label>
+          <input type="date" class="date-input" [(ngModel)]="endDate">
+        </div>
+        <button class="btn-apply" (click)="loadDashboard()">Apply</button>
+        <button class="btn-clear" (click)="clearFilters()">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading analytics...</p>
+  </div>
+
+  <div *ngIf="!isLoading && summary" class="dashboard-content">
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Total Income</div>
+        <div class="metric-value" style="color: #639922;">
+          ₹{{ (summary.totalIncome || 0) | number:'1.0-0' }}
+        </div>
+        <div class="metric-trend">{{ summary.transactionCount }} transactions</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Total Expenses</div>
+        <div class="metric-value" style="color: #E85D24;">
+          ₹{{ (summary.totalExpense || 0) | number:'1.0-0' }}
+        </div>
+        <div class="metric-trend">{{ (summary.byCategory || []).length }} categories</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Net Balance</div>
+        <div class="metric-value" [style.color]="summary.balance >= 0 ? '#639922' : '#E85D24'">
+          ₹{{ (summary.balance || 0) | number:'1.0-0' }}
+        </div>
+        <div class="metric-trend">{{ getSavingsRate() }}% savings rate</div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-label">Spending Trend</div>
+        <div class="metric-value">{{ getSpendingTrend() }}</div>
+        <div class="metric-trend">Last {{ summary.transactionCount }} days</div>
+      </div>
+    </div>
+
+    <div class="charts-grid">
+      <div class="chart-container">
+        <h3>Spending by Category</h3>
+        <div class="chart-wrapper">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <h3>Income vs Expenses Trend</h3>
+        <div class="chart-wrapper">
+          <canvas id="trendChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-container full-width">
+      <h3>Top Spending Categories</h3>
+      <div class="chart-wrapper">
+        <canvas id="monthlyChart"></canvas>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <h3>Category Breakdown</h3>
+      <table class="detail-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Type</th>
+            <th>Total Amount</th>
+            <th>Count</th>
+            <th>Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of summary.byCategory">
+            <td class="category-name">{{ item.category }}</td>
+            <td [class.income]="item.type?.toLowerCase() === 'income'" [class.expense]="item.type?.toLowerCase() === 'expense'">
+              {{ item.type }}
+            </td>
+            <td class="amount">₹{{ (item.total || 0) | number:'1.0-0' }}</td>
+            <td class="count">{{ item.count }}</td>
+            <td class="percentage">
+              {{ ((item.total || 0) / ((item.type?.toLowerCase() === 'income' ? summary.totalIncome : summary.totalExpense) || 1) * 100) | number:'1.0-0' }}%
+            </td>
+          </tr>
+          <tr *ngIf="!summary.byCategory || summary.byCategory.length === 0">
+            <td colspan="5" class="no-data">No transactions found for the selected period.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -49,6 +49,54 @@ namespace Expenses.API.Data.Services
             return transaction;
         }
 
+        public TransactionSummaryDto GetSummary(int userId, DateTime? startDate, DateTime? endDate)
+        {
+            var query = context.Transactions.Where(t => t.UserId == userId);
+
+            if (startDate.HasValue)
+            {
+                query = query.Where(t => t.CreatedAt >= startDate.Value);
+            }
+
+            if (endDate.HasValue)
+            {
+                query = query.Where(t => t.CreatedAt <= endDate.Value);
+            }
+
+            var transactions = query.ToList();
+
+            var totalIncome = transactions
+                .Where(t => t.Type != null && t.Type.ToLower() == "income")
+                .Sum(t => t.Amount);
+
+            var totalExpense = transactions
+                .Where(t => t.Type != null && t.Type.ToLower() == "expense")
+                .Sum(t => t.Amount);
+
+            var byCategory = transactions
+                .GroupBy(t => new { t.Category, t.Type })
+                .Select(g => new CategorySummaryDto
+                {
+                    Category = g.Key.Category,
+                    Type = g.Key.Type,
+                    Total = g.Sum(t => t.Amount),
+                    Count = g.Count()
+                })
+                .OrderByDescending(c => c.Total)
+                .ToList();
+
+            return new TransactionSummaryDto
+            {
+                TotalIncome = totalIncome,
+                TotalExpense = totalExpense,
+                Balance = totalIncome - totalExpense,
+                TransactionCount = transactions.Count,
+                StartDate = startDate,
+                EndDate = endDate,
+                ByCategory = byCategory
+            };
+        }
+
         public Transaction? Update(int transactionId, PutTransactionDto transaction)
         {
             var transactionToUpdate = context.Transactions.FirstOrDefault(t => t.Id == transactionId);

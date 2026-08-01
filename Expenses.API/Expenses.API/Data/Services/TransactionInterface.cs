@@ -13,6 +13,8 @@ namespace Expenses.API.Data.Services
         Transaction? Update(int id, PutTransactionDto transaction);
 
         void Delete(int id);
+
+        TransactionSummaryDto GetSummary(int userId, DateTime? startDate, DateTime? endDate);
     }
 
 }

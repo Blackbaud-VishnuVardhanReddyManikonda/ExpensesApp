@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { Signup } from './components/signup/signup';
 import { TransactionForm } from './components/transaction-form/transaction-form';
 import { TransactionList } from './components/transaction-list/transaction-list';
+import { TransactionSummaryComponent } from './components/transaction-summary/transaction-summary';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
@@ -24,6 +25,12 @@ export const routes: Routes = [
   {
     path:'add',
     component:TransactionForm,
+    canActivate: [authGuard]
+  },
+
+  {
+    path:'summary',
+    component:TransactionSummaryComponent,
     canActivate: [authGuard]
   },
 

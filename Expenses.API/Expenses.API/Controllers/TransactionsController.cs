@@ -41,6 +41,36 @@ namespace Expenses.API.Controllers
             }
         }
 
+        [HttpGet("Summary")]
+        public IActionResult GetSummary([FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate)
+        {
+            var nameIdentifierClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(nameIdentifierClaim))
+            {
+                return BadRequest("Could not get th user id");
+
+            }
+            if (!int.TryParse(nameIdentifierClaim, out int userId))
+            {
+                return BadRequest();
+            }
+
+            if (startDate.HasValue && endDate.HasValue && startDate > endDate)
+            {
+                return BadRequest(new { message = "startDate cannot be after endDate" });
+            }
+
+            try
+            {
+                var summary = transactionservice.GetSummary(userId, startDate, endDate);
+                return Ok(summary);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error fetching summary", error = ex.Message });
+            }
+        }
+
         [HttpGet("Details/{transactionId}")]
         public IActionResult Get(int transactionId)
         {

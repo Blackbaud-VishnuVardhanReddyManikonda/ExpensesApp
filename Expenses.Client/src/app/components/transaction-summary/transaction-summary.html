@@ -1,0 +1,89 @@
+<!-- transaction-summary.html -->
+<div class="container-fluid px-4">
+    <h3 class="mb-4">Summary</h3>
+
+    <div class="row g-3 align-items-end mb-4">
+        <div class="col-auto">
+            <label class="form-label">From</label>
+            <input type="date" class="form-control" [(ngModel)]="startDate">
+        </div>
+        <div class="col-auto">
+            <label class="form-label">To</label>
+            <input type="date" class="form-control" [(ngModel)]="endDate">
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-primary" (click)="loadSummary()">Apply</button>
+            <button class="btn btn-outline-secondary ms-2" (click)="clearFilters()">Clear</button>
+        </div>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+
+    <div *ngIf="isLoading" class="text-center text-muted py-5">Loading...</div>
+
+    <div *ngIf="!isLoading && summary">
+        <div class="row g-4 mb-4">
+            <div class="col-md-3">
+                <div class="card h-100 bg-success bg-opacity-75 text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Income</h5>
+                        <h3 class="card-text">{{summary.totalIncome | currency}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 bg-danger bg-opacity-75 text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Expenses</h5>
+                        <h3 class="card-text">{{summary.totalExpense | currency}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 bg-opacity-75 text-white" [ngClass]="summary.balance >= 0 ? 'bg-success':'bg-danger'">
+                    <div class="card-body">
+                        <h5 class="card-title">Net Balance</h5>
+                        <h3 class="card-text fw-bold">{{summary.balance | currency}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 bg-secondary bg-opacity-75 text-white">
+                    <div class="card-body">
+                        <h5 class="card-title">Transactions</h5>
+                        <h3 class="card-text">{{summary.transactionCount}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4>By Category</h4>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 30%;">Category</th>
+                        <th style="width: 20%;">Type</th>
+                        <th style="width: 25%;">Total</th>
+                        <th style="width: 25%;">Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of summary.byCategory">
+                        <td>{{category.category}}</td>
+                        <td [ngClass]="category.type?.toLowerCase() === 'income' ? 'text-success':'text-danger'">
+                            {{category.type}}
+                        </td>
+                        <td [ngClass]="category.type?.toLowerCase() === 'income' ? 'text-success':'text-danger'">
+                            {{category.total | currency}}
+                        </td>
+                        <td>{{category.count}}</td>
+                    </tr>
+                    <tr *ngIf="summary.byCategory.length === 0">
+                        <td colspan="4" class="text-center text-muted">No transactions found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
