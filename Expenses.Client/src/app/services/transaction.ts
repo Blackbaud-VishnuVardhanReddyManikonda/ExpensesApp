@@ -9,7 +9,7 @@ import { TransactionSummary } from '../models/transaction-summary';
 })
 export class TransactionService {
 
-  private apiUrl = 'https://localhost:7298/';
+  private apiUrl = 'https://expensesapp-api-ccdaf2cubragdveh.southindia-01.azurewebsites.net/';
 
   constructor(private http: HttpClient) { }
 
