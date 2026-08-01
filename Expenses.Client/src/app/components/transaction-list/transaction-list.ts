@@ -6,8 +6,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transaction-list',
-  imports: [CommonModule],
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './transaction-list.html',
   styleUrl: './transaction-list.css'
 })

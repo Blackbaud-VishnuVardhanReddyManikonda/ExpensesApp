@@ -6,8 +6,9 @@ import { TransactionSummary } from '../../models/transaction-summary';
 
 @Component({
   selector: 'app-transaction-summary',
-  imports: [CommonModule, FormsModule],
   standalone: true,
+  imports: [CommonModule, FormsModule],
+
   templateUrl: './transaction-summary.html',
   styleUrl: './transaction-summary.css'
 })

@@ -6,8 +6,9 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-transaction-form',
-  imports: [ReactiveFormsModule, CommonModule],
   standalone: true,
+  imports: [ReactiveFormsModule, CommonModule],
+  
   templateUrl: './transaction-form.html',
   styleUrl: './transaction-form.css'
 })
